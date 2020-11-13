@@ -1,0 +1,21 @@
+<section class="products__form-section">
+  <a routerLink="/admin/products/new"> Create a new Product </a>
+  <label for="search">Name (4 to 8 characters):</label>
+
+  <input
+    type="text"
+    id=""
+    name="name"
+    required
+    minlength="4"
+    maxlength="8"
+    size="10"
+  />
+
+  <form>
+    <div class="input-group">
+      <label for="name"> Name </label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+  </form>
+</section>

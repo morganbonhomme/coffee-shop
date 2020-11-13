@@ -1,0 +1,28 @@
+<section class="form__section">
+  <h2 class="heading_secondary">Create a new product</h2>
+  <form (ngSubmit)="save()" class="form__group">
+    <div class="form__input-group">
+      <label for="title" class="form__label">Title</label>
+      <input ngModel name="title" type="text" class="form__input-field" id="title" />
+    </div>
+
+    <div class="form__input-group">
+      <label for="price" class="form__label">Price</label>
+      <input ngModel name="price" type="number" class="form__input-field" id="price" />
+    </div>
+
+    <div class="form__input-group">
+      <label for="category" class="form__label">Category</label>
+      <select ngModel name="category" id="category" class="form__input-field">
+        <option value="">Choose a category</option>
+        <option *ngFor="let category of categories$ | async " [value]="category.key">{{ category.name }}</option>
+      </select>
+    </div>
+
+    <div class="form__input-group">
+      <label for="imageURL" class="form__label">Image URL</label>
+      <input type="text" ngModel name="imageURL" class="form__input-field" id="imageURL" />
+    </div>
+    <button class="form__button">Save</button>
+  </form>
+</section>

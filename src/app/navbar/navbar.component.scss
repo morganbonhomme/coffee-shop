@@ -54,6 +54,7 @@
   &__link {
     text-decoration: none;
     color: $color-primary;
+    transition: all 0.3s;
 
     &:hover,
     &:active,
