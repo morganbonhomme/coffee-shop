@@ -1,4 +1,7 @@
+import { AuthenticationService } from './authentication.service';
+import { UserService } from './user.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'coffee-shop';
+  constructor(private userService: UserService, private authentication: AuthenticationService, private router: Router) {
+    authentication.user$.subscribe(user => {
+      if (user) {
+        userService.save(user)
+      }
+    })
+  }
 }

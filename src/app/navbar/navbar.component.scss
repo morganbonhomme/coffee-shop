@@ -1,0 +1,100 @@
+@import "../../scss/abstracts/variables";
+
+.navigation {
+  background-color: $color-grey-light;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: $color-primary;
+  padding: 1rem 4rem 1rem 4rem;
+
+  &__logo-box {
+    width: 6rem;
+    height: 6rem;
+    float: left;
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__list {
+    list-style: none;
+    height: 6rem;
+    padding-left: 10rem;
+  }
+
+  &__item {
+    float: left;
+    line-height: 6rem;
+    padding-right: 2rem;
+
+    &--right {
+      float: right;
+      padding-right: 2rem;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 2.8rem;
+      right: -2rem;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 0.5rem solid transparent;
+      border-right: 0.5rem solid transparent;
+      border-top: 0.5rem solid $color-primary;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-primary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-primary-dark;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $color-white;
+    border-radius: .5rem;
+    top: 5rem;
+    right: 0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  &__dropdown-link {
+    color: $color-grey-dark-3;
+    text-decoration: none;
+    display: block;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    padding-left: 1rem;
+    text-transform: capitalize;
+
+    &:hover {
+      background-color: $color-grey-light;
+    }
+  }
+
+  &__dropdown:hover &__dropdown-content {
+    display: block;
+  }
+  
+}
