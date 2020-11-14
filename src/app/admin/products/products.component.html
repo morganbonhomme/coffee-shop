@@ -1,21 +1,25 @@
 <section class="products__form-section">
   <a routerLink="/admin/products/new"> Create a new Product </a>
-  <label for="search">Name (4 to 8 characters):</label>
 
-  <input
-    type="text"
-    id=""
-    name="name"
-    required
-    minlength="4"
-    maxlength="8"
-    size="10"
-  />
 
-  <form>
-    <div class="input-group">
-      <label for="name"> Name </label>
-      <input id="name" type="text" formControlName="name" />
-    </div>
-  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products$ | async ">
+        <td> {{product.payload.val().title}} </td>
+        <td> {{product.payload.val().price}} </td>
+        <td> <a [routerLink]="['/admin/products/', product.key]">Edit</a>
+           </td>
+
+      </tr>
+    </tbody>
+  </table>
 </section>
+
+

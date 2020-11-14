@@ -34,6 +34,12 @@
     display: block;
   }
 
+  &__alert {
+    font-size: 1.4rem;
+    color: $color-primary;
+    font-weight: 700;
+  }
+
   &__button{
     display: block;
     margin: 5rem auto;
@@ -61,5 +67,16 @@
      {
       outline: none;
     }
+
+    &[disabled]{
+      border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
+
+      &:hover{
+        transform: none;
+        box-shadow: none;
+      }
+}
   }
 }

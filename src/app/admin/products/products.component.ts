@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ProductService } from './../../product.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent  {
 
-  constructor() { }
+  products$;
+  constructor(private productService: ProductService) {
+    this.products$ = this.productService.getAll()
+   }
 
 }
