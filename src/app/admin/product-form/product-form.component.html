@@ -1,5 +1,5 @@
 <section class="form__section">
-  <h2 class="heading_secondary">{{ titleForm }}</h2>
+  <h2 class="heading-secondary">{{ titleForm }}</h2>
   <form
     #productForm="ngForm"
     (ngSubmit)="save(productForm.value)"
@@ -50,7 +50,7 @@
         <option value="">Choose a category</option>
         <option
           *ngFor="let category of categories$ | async"
-          [value]="category.key"
+          [value]="category.name"
         >
           {{ category.name }}
         </option>

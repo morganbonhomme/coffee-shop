@@ -20,7 +20,7 @@ export class ProductsComponent implements OnDestroy {
 
   filter(query: string) {
     this.filteredProducts = (query) ?
-      this.products.filter(p => p.payload.val().title.toLowerCase().includes(query.toLowerCase())) :
+      this.products.filter(product => product.payload.val().title.toLowerCase().includes(query.toLowerCase())) :
       this.products;
   }
 

@@ -1,0 +1,37 @@
+@import "../../scss/abstracts/variables";
+
+.login {
+  &__section {
+    height: calc(100vh - 8rem);
+    background-color: $color-grey-light;
+    text-align: center;
+    padding: 4rem;
+  }
+
+  &__button {
+    display: block;
+    margin: 5rem auto;
+    width: 25rem;
+    padding: 1em 1rem;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background-color: $color-blue;
+    transition: .3s all;
+    color: $color-white;
+
+    &:hover {
+    background-color: $color-blue-dark;
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.2);
+    }
+
+    &:active, 
+    &:focus
+     {
+      outline: none;
+    }
+  }
+}

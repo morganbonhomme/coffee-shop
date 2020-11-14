@@ -1,1 +1,33 @@
-<p>catalog works!</p>
+<section class="catalog__section">
+  <h2 class="heading-secondary">Discover our products</h2>
+  <div class="catalog__nav">
+    <a class="catalog__nav-item" routerLink="/products/" >All coffee types</a>
+    <a
+    *ngFor="let category of categories$ | async" 
+    class="catalog__nav-item"
+    routerLinkActive="catalog__nav-item--active"
+    routerLink="/products/" 
+    [queryParams]="{ category: category.name }"
+     >
+    {{ category.name}}</a>
+
+    <!-- <a 
+   
+   
+    [class.active]="categorySelected === category.key "> {{ category.name}}</a> -->
+
+  </div>
+  <div class="catalog__product-container">
+
+
+    <div class="catalog__product" *ngFor="let product of products$ | async">
+      <p class="catalog__product-title">{{product.payload.val().title}}</p>
+      <p class="catalog__product-price">{{product.payload.val().price | currency:'EUR':true}} by kg</p>
+      <p class="catalog__product-category">{{product.payload.val().category}} </p>
+      <div class="catalog__image-container">
+        <img class="catalog__image" src={{product.payload.val().imageURL}} alt="productImage">
+      </div>
+      <a class="catalog__product-cta">Add to cart</a>
+    </div>
+  </div>
+</section>

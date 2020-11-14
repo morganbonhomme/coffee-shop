@@ -1,29 +1,30 @@
-<section class="products__form-section">
-  <a routerLink="/admin/products/new"> Create a new Product </a>
+<section class="products__section">
+  <h1 class="heading-secondary">Manage your products</h1>
 
-  <p>Search for products</p>
-  <input 
-  #query
-  placeholder="Search"
-  (keyup)="filter(query.value)"> 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of filteredProducts ">
-        <td> {{product.payload.val().title}} </td>
-        <td> {{product.payload.val().price}} </td>
-        <td> <a [routerLink]="['/admin/products/', product.key]">Edit</a>
-           </td>
-
-      </tr>
-    </tbody>
-  </table>
+  <div class="products__container">
+    <button routerLink="/admin/products/new" class="products__button">
+      Create a new Product
+    </button>
+    <input 
+    #query 
+    placeholder="Search for products..." 
+    (keyup)="filter(query.value)"
+    class="products__input" />
+    <table class="products__table">
+      <thead>
+        <tr class="products__table-title">
+          <th>Title</th>
+          <th>Price (€/kg)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="products__table-row" *ngFor="let product of filteredProducts">
+          <td class="products__content ">{{ product.payload.val().title }}</td>
+          <td class="products__content products__content-center">{{ product.payload.val().price | currency:'EUR':true }}</td>
+          <td class="products__content products__content-center"><a class="products__edit-button" [routerLink]="['/admin/products/', product.key]">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
-
-
