@@ -13,7 +13,12 @@ export class ProductFormComponent {
 
   titleForm: String = 'Create a new product';
   categories$;
-  product = {};
+  product = {
+    title: null,
+    price: null,
+    category: null,
+    imageURL: null,
+  };
   id;
 
   constructor(
@@ -35,12 +40,16 @@ export class ProductFormComponent {
 
   save(product) {
     if (this.id) {
-      this.productService.update(product, this.id)
-    console.log('updated')
-
+      this.productService.update(product, this.id);
+      console.log('updated');
+    } else {
+      this.productService.create(product);
     }
+    this.router.navigate(['/admin/products']);
+  }
 
-    this.productService.create(product);
+  delete() {
+    this.productService.delete(this.id);
     this.router.navigate(['/admin/products']);
   }
 }
