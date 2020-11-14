@@ -1,3 +1,24 @@
+.heading-primary {
+  text-align: left;
+  color: $color-primary;
+  font-weight: 700;
+  font-size: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;  
+  line-height: 1.1;
+}
+
+.heading-sub{
+  text-align: left;
+  color: $color-secondary-dark;
+  font-weight: 400;
+  font-size: 1.6rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .heading_secondary {
   text-align: center;
   color: $color-secondary;
@@ -8,3 +29,4 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+

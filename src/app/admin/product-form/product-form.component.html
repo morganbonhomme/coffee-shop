@@ -76,6 +76,6 @@
       </div>
     </div>
     <button class="form__button" [disabled]="productForm.invalid">Save</button>
-    <button  type="button" class="form__button form__button--delete" (click)="delete()">Delete</button>
+    <button *ngIf="id != null" type="button" class="form__button form__button--delete" (click)="delete()">Delete</button>
   </form>
 </section>

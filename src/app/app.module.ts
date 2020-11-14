@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     CheckOutComponent,
     ProductsComponent,
     ProductFormComponent,
+    CatalogComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

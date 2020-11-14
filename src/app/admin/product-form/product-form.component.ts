@@ -33,7 +33,12 @@ export class ProductFormComponent {
       this.productService
         .getProduct(this.id)
         .pipe(take(1))
-        .subscribe((product) => (this.product = product));
+        .subscribe((product: {
+          title: any,
+          price: any,
+          category: any,
+          imageURL: any,
+        }) => (this.product = product));
       this.titleForm = `Update a product`;
     }
   }

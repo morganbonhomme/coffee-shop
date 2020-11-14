@@ -1,7 +1,11 @@
 <section class="products__form-section">
   <a routerLink="/admin/products/new"> Create a new Product </a>
 
-
+  <p>Search for products</p>
+  <input 
+  #query
+  placeholder="Search"
+  (keyup)="filter(query.value)"> 
   <table>
     <thead>
       <tr>
@@ -11,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products$ | async ">
+      <tr *ngFor="let product of filteredProducts ">
         <td> {{product.payload.val().title}} </td>
         <td> {{product.payload.val().price}} </td>
         <td> <a [routerLink]="['/admin/products/', product.key]">Edit</a>

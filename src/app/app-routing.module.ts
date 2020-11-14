@@ -1,3 +1,5 @@
+import { HomepageComponent } from './homepage/homepage.component';
+import { CatalogComponent } from './catalog/catalog.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { NgModule } from '@angular/core';
@@ -44,6 +46,14 @@ const routes: Routes = [
     component: ProductsComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'products',
+    component: CatalogComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent,
   },
 ];
 
