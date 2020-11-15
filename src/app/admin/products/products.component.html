@@ -21,7 +21,7 @@
       <tbody>
         <tr class="products__table-row" *ngFor="let product of filteredProducts">
           <td class="products__content ">{{ product.payload.val().title }}</td>
-          <td class="products__content products__content-center">{{ product.payload.val().price | currency:'EUR':true }}</td>
+          <td class="products__content products__content-center">{{ product.payload.val().price | currency:'EUR':'symbol' }}</td>
           <td class="products__content products__content-center"><a class="products__edit-button" [routerLink]="['/admin/products/', product.key]">Edit</a></td>
         </tr>
       </tbody>

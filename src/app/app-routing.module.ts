@@ -1,3 +1,4 @@
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductsComponent } from './admin/products/products.component';
@@ -12,6 +13,7 @@ import {
   customClaims,
 } from '@angular/fire/auth-guard';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ShoppingCart } from './model/shopping-cart';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['/']);
@@ -50,6 +52,10 @@ const routes: Routes = [
   {
     path: 'products',
     component: CatalogComponent
+  },
+  {
+    path: 'shopping-cart',
+    component: ShoppingCartComponent
   },
   {
     path: '',

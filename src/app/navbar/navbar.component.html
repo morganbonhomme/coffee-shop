@@ -5,14 +5,9 @@
     </div>
   </a>
 
-
   <ul class="navigation__list">
     <li class="navigation__item">
       <a routerLink="/products" class="navigation__link"> Our coffees </a>
-    </li>
-
-    <li class="navigation__item">
-      <a routerLink="/" class="navigation__link"> Shopping Cart </a>
     </li>
 
     <li
@@ -24,7 +19,9 @@
           {{ user.displayName }}
         </p>
         <div class="navigation__dropdown-content">
-          <a routerLink="/admin/products" class="navigation__dropdown-link"> Manage Products </a>
+          <a routerLink="/admin/products" class="navigation__dropdown-link">
+            Manage Products
+          </a>
           <a class="navigation__dropdown-link" (click)="logout()"> Logout </a>
         </div>
       </div>
@@ -35,5 +32,16 @@
         <a routerLink="/login" class="navigation__link"> Login </a>
       </li>
     </ng-template>
+
+    <li class="navigation__item navigation__item--right">
+      <a routerLink="/shopping-cart" class="navigation__link">
+        <img
+          class="navigation__cart"
+          src="../../assets/cart.png"
+          alt="shopping-cart"
+        />
+        <span *ngIf="cart$ | async as cart"> {{ cart.totalItemsCount }} </span>
+      </a>
+    </li>
   </ul>
 </div>

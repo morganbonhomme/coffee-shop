@@ -1,33 +1,53 @@
+import { ShoppingCartService } from './../shopping-cart.service';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryService } from './../category.service';
 import { ProductService } from './../product.service';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent {
-
-  products$;
-  categories$;
+export class CatalogComponent implements OnInit, OnDestroy {
+  products: any[] = [];
+  filteredProducts: any[] = [];
   categorySelected: String;
+  cart: any;
+  subscription: Subscription;
 
   constructor(
-    productService: ProductService, 
-    categoryService: CategoryService, 
-    route: ActivatedRoute) { 
-    this.products$ = productService.getAll();
-    this.categories$ = categoryService.getAll();
+    productService: ProductService,
+    route: ActivatedRoute,
+    private shoppingCartService: ShoppingCartService
+  ) {
 
-    route.queryParamMap
-      .subscribe(param => {
-        console.log(param.get('category'))
-        this.categorySelected = param.get('category')
-      }
-       )
+    productService
+      .getAll()
+      .pipe(
+        switchMap((products) => {
+          this.products = products;
+          return route.queryParamMap;
+        })
+      )
+      .subscribe((param) => {
+        this.categorySelected = param.get('category');
+        this.filteredProducts = this.categorySelected
+          ? this.products.filter(
+              (product) =>
+                product.payload.val().category === this.categorySelected
+            )
+          : this.products;
+      });
+  }
 
+  async ngOnInit() {
+    this.subscription = (await this.shoppingCartService.getCart())
+    .subscribe(cart => this.cart = cart);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 }
- 

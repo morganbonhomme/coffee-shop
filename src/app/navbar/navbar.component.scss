@@ -25,6 +25,13 @@
     padding-left: 10rem;
   }
 
+  &__cart {
+    position: absolute;
+    top: 1.8rem;
+    left: -2.3rem;
+    width: 2.5rem;
+  }
+
   &__item {
     float: left;
     line-height: 6rem;
@@ -56,6 +63,7 @@
     text-decoration: none;
     color: $color-primary;
     transition: all 0.3s;
+    position: relative;
 
     &:hover,
     &:active,

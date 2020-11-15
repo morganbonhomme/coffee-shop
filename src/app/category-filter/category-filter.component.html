@@ -1,0 +1,12 @@
+<div class="catalog__nav">
+  <a class="catalog__nav-item" routerLink="/products/">All coffee types</a>
+  <a
+    *ngFor="let category of categories$ | async"
+    class="catalog__nav-item"
+    routerLinkActive="catalog__nav-item--active"
+    routerLink="/products/"
+    [queryParams]="{ category: category.name }"
+  >
+    {{ category.name }}</a
+  >
+</div>

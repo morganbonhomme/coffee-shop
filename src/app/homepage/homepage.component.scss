@@ -6,6 +6,7 @@
     height: calc(100vh - 8rem);
     display: grid;
     grid-template-columns: 40% 60%;
+    padding-top: 5rem;
   }
 
   &__text-container{

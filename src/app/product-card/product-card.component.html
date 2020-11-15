@@ -1,0 +1,28 @@
+<p class="catalog__product-title">{{ product.payload.val().title }}</p>
+<p class="catalog__product-price">
+  {{ product.payload.val().price | currency: "EUR":'symbol' }} by kg
+</p>
+<p class="catalog__product-category">
+  {{ product.payload.val().category }}
+</p>
+<div class="catalog__image-container">
+  <img
+    class="catalog__image"
+    src="{{ product.payload.val().imageURL }}"
+    alt="productImage"
+  />
+</div>
+
+<div *ngIf="shoppingCart">
+  <button 
+  *ngIf=" shoppingCart.getQuantity(product) === 0; else updateQuantity"
+  class="catalog__product-cta"
+  (click)="addToCart()"
+  >Add to cart</button>
+  <ng-template #updateQuantity>
+  <product-quantity [product]="product" [shoppingCart]="shoppingCart"></product-quantity>
+  </ng-template>
+</div>
+
+
+
