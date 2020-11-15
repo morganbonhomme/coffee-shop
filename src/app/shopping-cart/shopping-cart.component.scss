@@ -1,0 +1,64 @@
+@import "../../scss/abstracts/variables";
+
+.cart {
+  &__section {
+    background-color: $color-grey-light;
+    min-height: calc(100vh - 8rem);
+    padding: 4rem;
+  }
+
+  &__table {
+    background-color: $color-white;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    border-collapse: collapse;
+
+  }
+
+  &__table-title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    height: 4rem;
+    background-color: $color-secondary-dark;
+    color: white;
+  }
+
+  &__table-row{
+    font-size: 1.4rem;
+    height: 4rem;
+    border-bottom: 1px solid $color-grey-light;
+  }
+
+  &__table-footer{
+    font-size: 1.6rem;
+    font-weight: 700;
+    height: 4rem;
+    background-color: $color-secondary;
+    color: white;
+  }
+
+  &__content{
+    padding-left: 2rem;
+  }
+
+  &__content-center{
+    text-align: center;
+  }
+
+  &__content-right{
+    text-align: right;
+  }
+
+
+
+}
+
+p {
+  font-size: 1.4rem;
+  margin-top: 3rem;
+  text-align: center;
+
+}

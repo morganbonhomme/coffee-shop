@@ -11,10 +11,13 @@ export class ProductCardComponent {
   @Input('product') product;
   @Input('shoppingCart') shoppingCart: ShoppingCart;
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
-
-  addToCart() {
-    this.shoppingCartService.addToCart(this.product);
+  constructor(private shoppingCartService: ShoppingCartService) {
+    console.log(this.shoppingCart);
   }
 
+  addToCart() {
+    console.log(this.shoppingCart);
+
+    this.shoppingCartService.addToCart(this.product);
+  }
 }

@@ -1,34 +1,33 @@
-<ng-container *ngIf=" cart$ | async as cart ">
-  <p>
-    You have {{ cart.totalItemsCount }} items in your cart
-  </p>
+<ng-container *ngIf="cart$ | async as cart">
+ 
+  <section class="cart__section">
+    <h2 class="heading-secondary">Your Shopping cart</h2>
+    <table class="cart__table">
+      <thead class="cart__table-title">
+        <tr>
+          <th>Coffee</th>
+          <th>Quantity (in kg)</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of cart.items"> 
+        <tr *ngIf="item.quantity > 0" class="cart__table-row" >
+          <td class="cart__content">{{ item.product.title }}</td>
+          <td class="cart__content cart__content-center">{{ item.quantity }}</td>
+          <td class="cart__content cart__content-center">{{ item.totalPrice | currency: "EUR":"symbol" }}</td>
+        </tr>
+      </ng-container>
+      </tbody>
+      <tfoot class="cart__table-footer">
+        <tr>
+          <th></th>
+          <th class="cart__content-right">Total price : </th>
+          <th> {{ cart.totalPrice | currency: "EUR":"symbol" }}</th>
+        </tr>
+      </tfoot>
+    </table>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Coffee</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cart.items">
-        <td> {{ item.product.title }}</td>
-        <td>
-          {{ item.quantity }}
-          <!-- <product-quantity [product]="item.product" [shoppingCart]="cart"></product-quantity> -->
-        </td>
-
-
-        <td>{{ item.totalPrice | currency:'EUR':'symbol' }}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th></th>
-        <th></th>
-        <th>{{ cart.totalPrice | currency:'EUR':'symbol' }} </th>
-      </tr>
-    </tfoot>
-  </table>
+    <p> // Check-out to be implemented //</p>
+  </section>
 </ng-container>

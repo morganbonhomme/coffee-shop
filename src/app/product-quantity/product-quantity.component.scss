@@ -1,0 +1,53 @@
+@import '../../scss/abstracts/variables';
+
+.product-quantity{
+
+  &__container {
+    position: relative;
+  }
+
+  &__count{
+    display: block;
+    margin: 1rem auto;
+    width: 15rem;
+    padding: .8em 1rem;
+    font-size: 1.5rem;
+    border-radius: 3rem;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background-color: $color-secondary;
+    transition: 0.3s all;
+    color: $color-white;
+  }
+
+  &__button {
+    position: absolute;
+    border-radius: 50%;
+    font-weight: 700;
+    top: 1rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: $color-grey-light;
+    color: $color-black;
+    border: none;
+    transition: .3s all;
+
+    &:hover,
+    &:active , 
+  &:focus      {
+      background-color: $color-grey-dark-2;
+      outline: none;
+    }
+
+  }
+
+  &__button--remove {
+    left: 5rem;
+  }
+
+  &__button--add {
+    right: 5rem;
+  }
+}

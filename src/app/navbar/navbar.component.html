@@ -40,7 +40,7 @@
           src="../../assets/cart.png"
           alt="shopping-cart"
         />
-        <span *ngIf="cart$ | async as cart"> {{ cart.totalItemsCount }} </span>
+        <p class="navigation__item-count" *ngIf="cart$ | async as cart"> {{ cart.totalItemsCount }} </p>
       </a>
     </li>
   </ul>

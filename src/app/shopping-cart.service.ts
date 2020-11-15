@@ -27,7 +27,6 @@ export class ShoppingCartService {
       .snapshotChanges()
       .pipe(
         map((x: any) => {
-          console.log('item', x)
           const items = x.payload.val().items;
           return new ShoppingCart(items);
         })
@@ -71,15 +70,17 @@ export class ShoppingCartService {
       .snapshotChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
-        console.log(item.payload.val().quantity);
-
-        if (item.payload.val().quantity > 1) {
+        console.log(item.payload.val())
+        if (item) {
           item$.update({
             quantity: item.payload.val().quantity - 1,
           });
         } else {
           item$.remove();
         }
+        console.log(item.payload.val())
+        
       });
+      
   }
 }
