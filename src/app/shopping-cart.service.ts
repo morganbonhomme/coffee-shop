@@ -70,16 +70,13 @@ export class ShoppingCartService {
       .snapshotChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
-        console.log(item.payload.val())
         if (item) {
           item$.update({
             quantity: item.payload.val().quantity - 1,
           });
         } else {
           item$.remove();
-        }
-        console.log(item.payload.val())
-        
+        }        
       });
       
   }

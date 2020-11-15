@@ -14,11 +14,9 @@ export class ProductQuantityComponent {
 
   addToCart() {
     this.shoppingCartService.addToCart(this.product);
-    console.log(this.shoppingCart);
   }
 
   removeFromCart() {
     this.shoppingCartService.removeFromCart(this.product);
-    console.log(this.shoppingCart);
   }
 }

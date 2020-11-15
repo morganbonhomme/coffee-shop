@@ -46,7 +46,6 @@ export class ProductFormComponent {
   save(product) {
     if (this.id) {
       this.productService.update(product, this.id);
-      console.log('updated');
     } else {
       this.productService.create(product);
     }

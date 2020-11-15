@@ -15,7 +15,7 @@
 
 <div *ngIf="shoppingCart">
   <button 
-  *ngIf=" shoppingCart.getQuantity(product) === 0; else updateQuantity"
+  *ngIf=" shoppingCart.getQuantity(product) === 0 || shoppingCart.items?.length === 0 ; else updateQuantity"
   class="catalog__product-cta"
   (click)="addToCart()"
   >Add to cart</button>
