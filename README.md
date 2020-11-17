@@ -7,7 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 :zap: [Live Demo ](https://coffeeshop-c91d7.web.app/)
 
 ### Bugs or improvements
-- [ ] **Urgent - When a user connect for the first time and add a product to his cart, the navigation count does not update. The user needs to refresh the page to see it working properly**
 - [ ] Handle errors correctly
 - [ ] Add animations when data is loading from Firebase
 - [ ] Reduce the delay or display a spinner when a user logs in
@@ -18,6 +17,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ ] Improve CSS & add responsiveness
 - [ ] Add default image
 - [ ] Add image upload
+- [x] When a user connect for the first time and add a product to his cart, the navigation count does not update. The user needs to refresh the page to see it working properly
+
 
 ### How to run the project
 - Download the project
